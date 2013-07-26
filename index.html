@@ -24,7 +24,8 @@
   for (i = 0; i < 7; i++) {
     var row = $('<div/>').addClass('row');
     for (j = 0; j < 52; j++) {
-      var block_id = i * 52 + j + 1;
+      var block_id = i * 52 + j;
+      block_id = Math.floor((block_id % 52) * 7 + block_id / 52) + 1;
       var block = $('<span/>')
                   .addClass('block')
                   .attr('data-block-id', block_id);
