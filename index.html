@@ -1,0 +1,39 @@
+<style>
+  #blocks {
+  }
+  .block {
+    background-color: rgb(238, 238, 238);
+    height: 11px;
+    width: 11px;
+    display: inline-block;
+    margin: 1px;
+  }
+  .block:hover {
+    background-color: blue;
+  }
+</style>
+<script src="jquery-1.9.1.js"></script>
+
+<div id="blocks"></div>
+<br>
+<div id="data">
+  data:
+</div>
+<script>
+  var blocks = $('#blocks');
+  for (i = 0; i < 7; i++) {
+    var row = $('<div/>').addClass('row');
+    for (j = 0; j < 52; j++) {
+      var block_id = i * 52 + j + 1;
+      var block = $('<span/>')
+                  .addClass('block')
+                  .attr('data-block-id', block_id);
+      row = row.append(block);
+    }
+    blocks = blocks.append(row);
+  }
+  $('.block').on('click', function () {
+    $(this).css('background-color', 'red');
+    $('#data').text($('#data').text() + ' ' + $(this).attr('data-block-id'));
+  });
+</script>
