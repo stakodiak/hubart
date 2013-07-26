@@ -22,9 +22,6 @@ def create_commit(dt):
     subprocess.Popen(args, env=env)
     time.sleep(2)
 
-if __name__ == '__main__':
-    main()
-
 def main():
     # Create a commit for each td passed to script.
     start = datetime(2013, 07, 14)
@@ -32,3 +29,7 @@ def main():
     for td in map(int, sys.argv[1:]):
         date = start + timedelta(days=td)
         create_commit(date)
+
+
+if __name__ == '__main__':
+    main()
